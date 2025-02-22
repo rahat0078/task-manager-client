@@ -1,9 +1,16 @@
+import { Outlet } from "react-router-dom"
+
 
 function App() {
 
+
   return (
     <>
-      <h1 className='text-6xl text-center'>Vite + React</h1>
+      <Outlet/>
+      <h3 className=" text-4xl btn">dfadfsf</h3>
+      <button className="btn">fjgdkf</button>
+      <button className="btn">Button</button>
+
     </>
   )
 }
