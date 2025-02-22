@@ -20,9 +20,11 @@ const Login = () => {
                 baseUrl.post("/user", user)
                     .then(res => {
                         if (res.data.insertedId) {
-                            navigate("/dashboard/myTask")
+                            console.log(true);
                         }
                     })
+
+                navigate("/dashboard/myTask")
 
             })
     }

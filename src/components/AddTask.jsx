@@ -1,15 +1,34 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { authContext } from './../provider/AuthContext';
+import useAxios from "../hooks/useAxios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddTask = () => {
-    const { register, handleSubmit, formState: { errors }, } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const {user} = useContext(authContext);
+    const baseUrl = useAxios();
+    const navigate = useNavigate()
 
     const onSubmit = (data) => {
         const newData = {
             ...data,
             time: new Date().toISOString(), 
+            email: user?.email
           };
-        console.log(newData)
+          baseUrl.post("/tasks", newData)
+          .then(res => {
+            if(res.data.message){
+                reset()
+                toast.success('Successfully added task!');
+                navigate("/dashboard/myTask")
+            }
+          })
     }
+
+
+
 
     return (
         <div className="flex justify-center items-center min-h-screen">

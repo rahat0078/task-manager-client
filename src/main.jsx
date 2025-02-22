@@ -14,6 +14,10 @@ import PrivateRoute from './private/PrivateRoute';
 import Error from './components/Error.jsx';
 import AddTask from './components/AddTask.jsx';
 import MyTask from './components/MyTask.jsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -46,9 +50,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>
 );
 
