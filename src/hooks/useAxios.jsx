@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const baseUrl = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://task-manager-backend-nu-navy.vercel.app"
 })
 
 const useAxios = () => {
