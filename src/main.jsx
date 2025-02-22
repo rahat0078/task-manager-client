@@ -8,13 +8,13 @@ import {
 } from "react-router-dom"
 import App from './App';
 import AuthProvider from './provider/AuthProvider.jsx';
-import Login from './components/Login';
 import Dashboard from './components/Dashboard.jsx';
 import PrivateRoute from './private/PrivateRoute';
 import Error from './components/Error.jsx';
 import AddTask from './components/AddTask.jsx';
 import MyTask from './components/MyTask.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Login from './components/Login.jsx';
 
 
 const queryClient = new QueryClient();
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: '/login',
+        path: '/',
         element: <Login />
       }
     ]

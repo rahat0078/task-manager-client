@@ -12,7 +12,7 @@ const Dashboard = () => {
     const handleLogout = () => {
         handleSignOut()
             .then(() => {
-                navigate("/login")
+                navigate("/")
             })
     }
 
