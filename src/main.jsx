@@ -26,6 +26,10 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
+        index: true,
+        element: <Login />
+      },
+      {
         path: "/dashboard",
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
@@ -40,10 +44,7 @@ const router = createBrowserRouter([
         ]
       },
 
-      {
-        path: '/',
-        element: <Login />
-      }
+
     ]
   },
 ]);
